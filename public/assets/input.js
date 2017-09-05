@@ -16950,7 +16950,7 @@ function toArray(list, index) {
 /***/ (function(module, exports, __webpack_require__) {
 
 const io = __webpack_require__(22);
-const socket = io("http://localhost:3000");
+const socket = io(location.origin);
 const $ = __webpack_require__(21);
 
 
