@@ -1,11 +1,12 @@
 const io = require("socket.io-client");
-const socket = io("http://localhost:3000");
+const socket = io(location.origin);
+const $ = require("jquery")
 
 socket.on("connect",(socket)=>{
     alert("connected")
 })
 
-socket.on("color",(data)=>{
+socket.on("pushcolor",(data)=>{
     console.log(data);
     document.getElementById("main").style.backgroundColor = data;
     
