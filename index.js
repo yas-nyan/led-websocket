@@ -8,16 +8,17 @@ const PORT = 3000;
 const staticDir = "/public";
 
 let timer = {}
-let RGB = [1,1,1]
+let nowColor = "";
 io.on("connection",(socket)=>{
-    socket.emit("pushcolor",makeColor(RGB))
+    socket.emit("pushcolor",nowColor)
     socket.on("setColor",(data)=>{
-        console.log(data);
+        console.log("SET:"+data);
+        nowColor = data;
         socket.broadcast.emit('pushcolor',data);
     })
 
     socket.on("disconnect",(socket)=>{
-        clearInterval(timer);
+        //clearInterval(timer);
     });
 })
 const makeColor = function (RGB){
